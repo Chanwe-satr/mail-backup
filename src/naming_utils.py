@@ -112,8 +112,7 @@ class NamingUtils:
 
         date = mail.date
         if date.year < 1971:
-            date = datetime(0, 1, 1, 0, 0, 0)
-
+            date = datetime(1970, 1, 1, 0, 0, 0)  # Set to epoch if date is invalid
         add_to_attributes(NamingKey.YEAR, cls.prepare_int(date.year, 4))
         add_to_attributes(NamingKey.MONTH, cls.prepare_int(date.month, 2))
         add_to_attributes(NamingKey.DAY, cls.prepare_int(date.day, 2))
